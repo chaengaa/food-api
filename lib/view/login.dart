@@ -1,18 +1,19 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:foods_app/controller/logincon.dart';
 import 'package:foods_app/service/auth_service.dart';
 import 'package:foods_app/view/register.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:get/get.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
   TextEditingController emailcon = TextEditingController();
   TextEditingController passcon = TextEditingController();
-  Savelogin savelogin = Savelogin();
+  AuthServices authServices = Get.put(AuthServices());
+  // Savelogin savelogin = Savelogin();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -113,7 +114,9 @@ class Login extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  authServices.singinwithgoogle(context);
+                },
                 child: Image.asset(
                   "assets/image/google.png",
                   width: 40,

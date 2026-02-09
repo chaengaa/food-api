@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:foods_app/service/auth_service.dart';
 import 'package:foods_app/view/login.dart';
+import 'package:foods_app/controller/logincon.dart';
 
-// import 'package:get/get.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -13,7 +14,8 @@ class Register extends StatelessWidget {
   TextEditingController emailcon = TextEditingController();
   TextEditingController passwordcon = TextEditingController();
   TextEditingController confirmpasswordcon = TextEditingController();
-  // AuthServices authServices = Get.put(AuthServices());
+  AuthServices authServices = Get.put(AuthServices());
+  Savelogin saveLogin = Savelogin();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +120,7 @@ class Register extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  // authServices.singinwithgoogle();
+                  authServices.singinwithgoogle(context);
                 },
                 child: Image.asset(
                   "assets/image/google.png",

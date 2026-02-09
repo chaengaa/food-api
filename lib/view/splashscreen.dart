@@ -27,7 +27,7 @@ class _SplashscreenState extends State<Splashscreen> {
   void initState() {
     super.initState();
     checkedlogin();
-    Future.delayed(Duration(seconds: 12), () {
+    Future.delayed(Duration(seconds: 11), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(

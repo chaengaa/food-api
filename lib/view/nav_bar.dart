@@ -1,11 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foods_app/bloc/bottomnav_bloc.dart';
-import 'package:foods_app/tapscreen/home.dart';
-import 'package:foods_app/tapscreen/notification.dart';
-import 'package:foods_app/tapscreen/profile.dart';
-import 'package:foods_app/tapscreen/search.dart';
+import 'package:foods_app/bloc/button/bottomnav_bloc.dart';
+import 'package:foods_app/view/tapscreen/home_screen.dart';
+import 'package:foods_app/view/tapscreen/notification.dart';
+import 'package:foods_app/view/tapscreen/profile.dart';
+import 'package:foods_app/view/tapscreen/search.dart';
 
 class NavBars extends StatefulWidget {
   const NavBars({super.key});
@@ -15,8 +14,7 @@ class NavBars extends StatefulWidget {
 }
 
 class _NavBarsState extends State<NavBars> {
-  List<Widget> screen = [Homes(), Searchs(), Profile(), Notifications()];
-  bool isSwitch = false;
+  List<Widget> screen = [HomeScreen(), Searchs(), Profile(), Notifications()];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavBloc, BottomNavState>(
@@ -30,7 +28,7 @@ class _NavBarsState extends State<NavBars> {
               context.read<BottomNavBloc>().add(SelectedNav(index: value));
             },
             type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(

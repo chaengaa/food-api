@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:foods_app/bloc/bottomnav_bloc.dart';
+import 'package:foods_app/bloc/button/bottomnav_bloc.dart';
+import 'package:foods_app/bloc/cart/cart_bloc.dart';
 import 'package:foods_app/data/notifier.dart';
 import 'package:foods_app/view/splashscreen.dart';
 
@@ -20,12 +21,15 @@ class MyApp extends StatelessWidget {
       valueListenable: darkmode,
       builder: (context, themes, child) {
         return MultiBlocProvider(
-          providers: [BlocProvider(create: (context) => BottomNavBloc())],
+          providers: [
+            BlocProvider(create: (context) => BottomNavBloc()),
+            BlocProvider(create: (context) => CartBloc()),
+          ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(
-                seedColor: Colors.teal,
+                seedColor: Colors.red,
                 brightness: (themes) ? Brightness.light : Brightness.dark,
               ),
             ),
