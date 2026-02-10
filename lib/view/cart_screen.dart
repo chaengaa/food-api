@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:foods_app/bloc/cart/cart_bloc.dart';
 import 'package:foods_app/controller/payment_controller.dart';
+import 'package:foods_app/view/confirmOrder.dart';
 import 'package:foods_app/view/payment.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quickalert/models/quickalert_type.dart';
@@ -164,7 +165,7 @@ class CartScreen extends StatelessWidget {
                     ),
                     Container(
                       width: double.infinity,
-                      height: 413.3,
+                      height: 400.3,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
@@ -273,7 +274,7 @@ class CartScreen extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 80),
+                            SizedBox(height: 70),
                             Container(
                               width: 300,
                               height: 50,
@@ -290,7 +291,7 @@ class CartScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => Payment(),
+                                      builder: (context) => ConfirmOrder(),
                                     ),
                                   );
                                 },

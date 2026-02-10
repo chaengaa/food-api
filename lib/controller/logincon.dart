@@ -15,6 +15,7 @@ class Savelogin {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     return preferences.remove("isLogin");
   }
+  
 
     // Save user to show
   static Future<void> saveUserInfo(String name, String email, String? photoUrl) async {

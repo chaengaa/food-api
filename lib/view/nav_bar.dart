@@ -14,7 +14,7 @@ class NavBars extends StatefulWidget {
 }
 
 class _NavBarsState extends State<NavBars> {
-  List<Widget> screen = [HomeScreen(), Searchs(), Profile(), Notifications()];
+  List<Widget> screen = [HomeScreen(), Searchs(), Notifications(), Profile()];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<BottomNavBloc, BottomNavState>(
@@ -36,12 +36,12 @@ class _NavBarsState extends State<NavBars> {
                 label: "Search",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: "Profile",
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.notifications),
                 label: "Notification",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: "Profile",
               ),
             ],
           ),

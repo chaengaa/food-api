@@ -32,6 +32,7 @@ class _SearchsState extends State<Searchs> {
           style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
         ),
         centerTitle: true,
+        // automaticallyImplyLeading: false,
       ),
       body: FutureBuilder<List<Foods>>(
         future: FoodServices.getFood(),
