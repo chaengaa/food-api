@@ -367,14 +367,14 @@ class _PaymentState extends State<Payment> {
                       backgroundColor: Colors.white,
                       content: Container(
                         width: 300,
-                        height: 400,
+                        height: 350,
                         decoration: BoxDecoration(
                           color: Colors.white
                         ),
                         child: Column(
                           children: [
-                            Image.network("https://cdn.dribbble.com/userupload/22333996/file/original-6ac4030147adbe5d9381c4600c79eccb.gif", width: 250, height: 250, fit: BoxFit.cover,),
-                            Text("Confirm Order", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                            Image.network("https://media.tenor.com/-8Uay6X3E3UAAAAM/gil-cat.gif", width: 250, height: 250, fit: BoxFit.cover,),
+                            // Text("Confirm Order", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
                             Text("Thank you for Order", style: TextStyle(fontSize: 16),),
                             SizedBox(height: 20,),
                             ElevatedButton(
