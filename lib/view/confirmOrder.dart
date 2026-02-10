@@ -202,7 +202,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
               padding: const EdgeInsets.fromLTRB(20, 24, 20, 24),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.blue[700]!, Colors.blue[500]!],
+                  colors: [Colors.red[700]!, Colors.red[500]!],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
@@ -266,7 +266,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
                           color: hasAddress
-                              ? Colors.blue[700]!
+                              ? Colors.red[700]!
                               : Colors.grey[300]!,
                           width: hasAddress ? 2 : 1,
                         ),
@@ -289,7 +289,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: hasAddress
-                                      ? Colors.blue[50]
+                                      ? Colors.red[50]
                                       : Colors.grey[100],
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -298,7 +298,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                       ? Icons.check_circle
                                       : Icons.add_location,
                                   color: hasAddress
-                                      ? Colors.blue[700]
+                                      ? Colors.red[700]
                                       : Colors.grey[600],
                                   size: 24,
                                 ),
@@ -358,7 +358,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(16),
-                        border: Border.all(color: Colors.green[200]!),
+                        border: Border.all(color: Colors.blue[200]!),
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 8,
@@ -375,7 +375,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                               Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: BoxDecoration(
-                                  color: Colors.green[50],
+                                  color: Colors.blue[50],
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: Text(
@@ -413,7 +413,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                           padding: const EdgeInsets.symmetric(
                                               horizontal: 8, vertical: 2),
                                           decoration: BoxDecoration(
-                                            color: Colors.blue[50],
+                                            color: Colors.red[50],
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                           ),
@@ -421,7 +421,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                             paymentData.selectedShop!.type,
                                             style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.blue[700],
+                                              color: Colors.red[700],
                                             ),
                                           ),
                                         ),
@@ -441,7 +441,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                 child: Row(
                                   children: [
                                     Icon(Icons.route,
-                                        size: 20, color: Colors.blue[700]),
+                                        size: 20, color: Colors.red[700]),
                                     const SizedBox(width: 8),
                                     Column(
                                       crossAxisAlignment:
@@ -459,7 +459,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                           style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w600,
-                                            color: Colors.blue[700],
+                                            color: Colors.red[700],
                                           ),
                                         ),
                                       ],
@@ -477,7 +477,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     Icon(Icons.schedule,
-                                        size: 20, color: Colors.green[700]),
+                                        size: 20, color: Colors.blue[700]),
                                     const SizedBox(width: 8),
                                     Column(
                                       crossAxisAlignment:
@@ -495,7 +495,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                                           style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w600,
-                                            color: Colors.green[700],
+                                            color: Colors.blue[700],
                                           ),
                                         ),
                                       ],
@@ -529,14 +529,14 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
                             markerId: const MarkerId("selected"),
                             position: paymentData.selectedLatLng!,
                             icon: BitmapDescriptor.defaultMarkerWithHue(
-                                BitmapDescriptor.hueBlue),
+                                BitmapDescriptor.hueRed),
                           ),
                           if (paymentData.selectedShop != null)
                             Marker(
                               markerId: const MarkerId("shop"),
                               position: paymentData.selectedShop!.location,
                               icon: BitmapDescriptor.defaultMarkerWithHue(
-                                  BitmapDescriptor.hueGreen),
+                                  BitmapDescriptor.hueBlue),
                             ),
                         },
                         zoomControlsEnabled: false,
@@ -569,7 +569,7 @@ class _ConfirmOrderState extends State<ConfirmOrder> {
         child: ElevatedButton(
           onPressed: hasAddress ? _navigateToPayment : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue[700],
+            backgroundColor: Colors.red[700],
             disabledBackgroundColor: Colors.grey[300],
             padding: const EdgeInsets.symmetric(vertical: 16),
             shape: RoundedRectangleBorder(
@@ -766,7 +766,7 @@ class _LocationPickerState extends State<LocationPicker> {
           markerId: MarkerId(shop.id),
           position: shop.location,
           icon: BitmapDescriptor.defaultMarkerWithHue(
-            isNearest ? BitmapDescriptor.hueGreen : BitmapDescriptor.hueOrange,
+            isNearest ? BitmapDescriptor.hueBlue : BitmapDescriptor.hueOrange,
           ),
           infoWindow: InfoWindow(
             title: shop.name,
@@ -791,7 +791,7 @@ class _LocationPickerState extends State<LocationPicker> {
           startCap: Cap.roundCap,
           endCap: Cap.roundCap,
         ),
-        // Blue route (inner line)
+        // blue route (inner line)
         Polyline(
           polylineId: const PolylineId("route"),
           points: routeCoordinates,
@@ -859,7 +859,7 @@ class _LocationPickerState extends State<LocationPicker> {
         markerId: const MarkerId("selected"),
         position: selectedPoint,
         draggable: true,
-        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
         infoWindow: const InfoWindow(title: "Your Location"),
         onDragEnd: (newPosition) {
           _updateLocation(newPosition);
@@ -874,7 +874,7 @@ class _LocationPickerState extends State<LocationPicker> {
           markerId: MarkerId(shop.id),
           position: shop.location,
           icon: BitmapDescriptor.defaultMarkerWithHue(
-              BitmapDescriptor.hueGreen),
+              BitmapDescriptor.hueBlue),
           infoWindow: InfoWindow(
             title: shop.name,
             snippet: shop.type,
@@ -940,7 +940,7 @@ class _LocationPickerState extends State<LocationPicker> {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    color: Colors.green[50],
+                    color: Colors.blue[50],
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(shop.image, style: const TextStyle(fontSize: 32)),
@@ -1044,19 +1044,19 @@ class _LocationPickerState extends State<LocationPicker> {
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                      color: Colors.green[50],
+                      color: Colors.blue[50],
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Column(
                       children: [
-                        Icon(Icons.schedule, color: Colors.green[700]),
+                        Icon(Icons.schedule, color: Colors.blue[700]),
                         const SizedBox(height: 4),
                         Text(
                           '$deliveryTime min',
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green[700],
+                            color: Colors.blue[700],
                           ),
                         ),
                         Text(
@@ -1297,7 +1297,7 @@ class _LocationPickerState extends State<LocationPicker> {
                       leading: Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          color: isNearest ? Colors.green[50] : Colors.grey[100],
+                          color: isNearest ? Colors.blue[50] : Colors.grey[100],
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child:
@@ -1314,7 +1314,7 @@ class _LocationPickerState extends State<LocationPicker> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 6, vertical: 2),
                               decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: Colors.blue,
                                 borderRadius: BorderRadius.circular(4),
                               ),
                               child: const Text(
@@ -1427,7 +1427,7 @@ class _LocationPickerState extends State<LocationPicker> {
                   },
                   backgroundColor: Colors.white,
                   elevation: 4,
-                  child: Icon(Icons.remove, color: Colors.blue[700]),
+                  child: Icon(Icons.remove, color: Colors.red[700]),
                 ),
               ],
             ),
@@ -1473,11 +1473,11 @@ class _LocationPickerState extends State<LocationPicker> {
                       Container(
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          color: Colors.blue[50],
+                          color: Colors.red[50],
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Icon(Icons.location_on,
-                            color: Colors.blue[700], size: 24),
+                            color: Colors.red[700], size: 24),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
@@ -1513,9 +1513,9 @@ class _LocationPickerState extends State<LocationPicker> {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: Colors.green[50],
+                        color: Colors.blue[50],
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Colors.green[200]!),
+                        border: Border.all(color: Colors.blue[200]!),
                       ),
                       child: Row(
                         children: [
@@ -1554,7 +1554,7 @@ class _LocationPickerState extends State<LocationPicker> {
                                 style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.green[700],
+                                  color: Colors.blue[700],
                                 ),
                               ),
                               if (routeDuration > 0)
@@ -1606,7 +1606,7 @@ class _LocationPickerState extends State<LocationPicker> {
                           icon: const Icon(Icons.check),
                           label: const Text("Confirm Location"),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue[700],
+                            backgroundColor: Colors.red[700],
                             foregroundColor: Colors.white,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                             shape: RoundedRectangleBorder(

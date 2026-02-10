@@ -302,7 +302,7 @@ class _HomesState extends State<HomeScreen> {
                 child: Text(
                   "Special foods & drinks",
                   style: GoogleFonts.poppins(
-                    color: Colors.red,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),

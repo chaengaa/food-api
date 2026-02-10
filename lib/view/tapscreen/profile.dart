@@ -80,26 +80,75 @@ class Profile extends StatelessWidget {
             SizedBox(height: 25,),
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(202, 61, 15, 15),
-                  borderRadius: BorderRadius.circular(10)
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.logout, color: Colors.white, size: 25,),
-                    SizedBox(width: 10,),
-                    InkWell(
+              child: InkWell(
                       onTap: () async{
                         await Savelogin.logout();
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Splashscreen()));
+                        showDialog(
+                    context: context, 
+                    builder: (context){
+                      return AlertDialog(
+                        backgroundColor: Colors.white,
+                        content: Container(
+                          height: 30,
+                          child: Center(child: Text("Log Out of your account?", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),))
+                        ),
+                        actions: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 70,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Color.fromARGB(202, 61, 15, 15),),
+                                  borderRadius: BorderRadius.circular(20)
+                                ),
+                                child: TextButton(
+                                  onPressed: (){
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("Cancle", style: TextStyle(color: Color.fromARGB(202, 61, 15, 15),fontWeight: FontWeight.w400),)
+                                ),
+                              ),
+                              // Spacer(),
+                              SizedBox(width: 5,),
+                              Container(
+                                width: 90,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(202, 61, 15, 15),
+                                  borderRadius: BorderRadius.circular(20)
+                                ),
+                                child: TextButton(
+                                  onPressed: (){
+                                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Splashscreen()));
+                                  },
+                                  child: Text("Log Out", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),)
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      );
+                    }
+                  );
                       },
-                      child: Text("LogOut", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),))
-                  ],
-                )
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(202, 61, 15, 15),
+                    borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.logout, color: Colors.white, size: 25,),
+                      SizedBox(width: 10,),
+                      Text("Log Out", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),)
+                    ],
+                  )
+                ),
               ),
             )
           ],

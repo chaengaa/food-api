@@ -77,7 +77,7 @@ class _PaymentState extends State<Payment> {
                           height: 25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(width: 2, color:Colors.black)
+                            border: Border.all(width: 2, color:Colors.red)
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
@@ -85,7 +85,7 @@ class _PaymentState extends State<Payment> {
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(
-                                color: (selectedPayment=="ACELEDA")? Colors.black:Colors.white,
+                                color: (selectedPayment=="ACELEDA")? Colors.red:Colors.white,
                                 borderRadius: BorderRadius.circular(20)
                               ),
                             ),
@@ -137,7 +137,7 @@ class _PaymentState extends State<Payment> {
                           height: 25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(width: 2, color:Colors.black)
+                            border: Border.all(width: 2, color:Colors.red)
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
@@ -145,7 +145,7 @@ class _PaymentState extends State<Payment> {
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(
-                                color: (selectedPayment=="ABA")? Colors.black:Colors.white,
+                                color: (selectedPayment=="ABA")? Colors.red:Colors.white,
                                 borderRadius: BorderRadius.circular(20)
                               ),
                             ),
@@ -197,7 +197,7 @@ class _PaymentState extends State<Payment> {
                           height: 25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(width: 2, color:Colors.black)
+                            border: Border.all(width: 2, color:Colors.red)
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
@@ -205,7 +205,7 @@ class _PaymentState extends State<Payment> {
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(
-                                color: (selectedPayment=="delivery")? Colors.black:Colors.white,
+                                color: (selectedPayment=="delivery")? Colors.red:Colors.white,
                                 borderRadius: BorderRadius.circular(20)
                               ),
                             ),
@@ -255,7 +255,7 @@ class _PaymentState extends State<Payment> {
                           height: 25,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(width: 2, color:Colors.black)
+                            border: Border.all(width: 2, color:Colors.red)
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(3.0),
@@ -263,7 +263,7 @@ class _PaymentState extends State<Payment> {
                               width: 20,
                               height: 20,
                               decoration: BoxDecoration(
-                                color: (selectedPayment=="other")? Colors.black:Colors.white,
+                                color: (selectedPayment=="other")? Colors.red:Colors.white,
                                 borderRadius: BorderRadius.circular(20)
                               ),
                             ),
@@ -276,12 +276,15 @@ class _PaymentState extends State<Payment> {
             ),
 
             SizedBox(height: 40,),
-            Row(
-              children: [
-                Text("Total changes", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
-                Spacer(),
-                Text("\$${paymentcon.AfterDiscount(cartItems.state.foodlist).toStringAsFixed(2)}",style: TextStyle(color: Colors.blueAccent, fontSize: 20, fontWeight: FontWeight.bold),)
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20),
+              child: Row(
+                children: [
+                  Text("Total changes", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                  Spacer(),
+                  Text("\$${paymentcon.AfterDiscount(cartItems.state.foodlist).toStringAsFixed(2)}",style: TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),)
+                ],
+              ),
             ),
             SizedBox(height: 100,),
             InkWell(
@@ -336,9 +339,19 @@ class _PaymentState extends State<Payment> {
                                 ),
                                 child: TextButton(
                                   onPressed: (){
+                                    cartItems.state.foodlist.clear();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Success!'),
+                                      backgroundColor: Colors.green,
+                                      duration: Duration(seconds: 2),
+                                    ),
+                                  );
                                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NavBars()));
                                   },
-                                  child: Text("Done", style: TextStyle(color: Colors.white),)
+                                  child: InkWell(
+                                    
+                                    child: Text("Done", style: TextStyle(color: Colors.white),))
                                 ),
                               ),
                             ],
@@ -349,7 +362,38 @@ class _PaymentState extends State<Payment> {
                   );
                 }
                 if(selectedPayment=="delivery"){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NavBars())); 
+                  showDialog(context: context, builder: (context){
+                    return AlertDialog(
+                      backgroundColor: Colors.white,
+                      content: Container(
+                        width: 300,
+                        height: 400,
+                        decoration: BoxDecoration(
+                          color: Colors.white
+                        ),
+                        child: Column(
+                          children: [
+                            Image.network("https://cdn.dribbble.com/userupload/22333996/file/original-6ac4030147adbe5d9381c4600c79eccb.gif", width: 250, height: 250, fit: BoxFit.cover,),
+                            Text("Confirm Order", style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+                            Text("Thank you for Order", style: TextStyle(fontSize: 16),),
+                            SizedBox(height: 20,),
+                            ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red,
+                                foregroundColor: Colors.white
+                              ),
+                              onPressed: (){
+                                cartItems.state.foodlist.clear();
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> NavBars())); 
+                              }, 
+                              child: Text("Go Back"))
+                          ],
+                          
+                        ),
+                      ),
+                    );
+                   } 
+                  );
                 }
               },
               child: Padding(
